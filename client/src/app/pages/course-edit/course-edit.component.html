@@ -1,0 +1,46 @@
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Course Edit</h1>
+</div>
+<div class="card mb-40">
+    <div class="card-header">
+        <i class="fa fa-edit"></i> Edit
+    </div>
+    <div class="card-body">
+        <form #editForm="ngForm" [ngClass]="{'was-validated': formValid!=null}">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="item.name" name="name" #name="ngModel" required>
+                        <div class="invalid-feedback">Value is required</div>
+                    </div>
+                    <!-- RELATIONS -->
+                    
+
+
+                    <h2 *ngIf="externalStudent[0] || externalExam[0] || externalTeacher[0]">External Relations</h2>
+        
+                        <h3 *ngIf="externalStudent[0]">Student</h3>
+                        <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of externalStudent">{{item._id}}</li>
+                        </ul>
+                        <h3 *ngIf="externalExam[0]">Exam</h3>
+                        <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of externalExam">{{item._id}}</li>
+                        </ul>
+                        <h3 *ngIf="externalTeacher[0]">Teacher</h3>
+                        <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of externalTeacher">{{item._id}}</li>
+                        </ul>
+
+                    <!-- BUTTON BAR -->
+                    <div class="mt-40">
+                        <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Save</button>
+                        <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Back To List</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

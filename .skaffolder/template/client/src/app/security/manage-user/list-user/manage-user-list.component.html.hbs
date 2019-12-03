@@ -1,0 +1,102 @@
+**** PROPERTIES SKAFFOLDER ****
+{
+    "forEachObj": "db",
+    "_partials": []
+}
+**** END PROPERTIES SKAFFOLDER ****
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Manage User</h1>
+</div>
+
+<!-- SEARCH FORM -->
+<div class="card">
+
+    <div class="card-header">
+        <i class="fa fa-search"></i> Search
+    </div>
+    <div class="card-body">
+        <form #searchForm="ngForm">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="title">Username</label>
+                        <input type="text" class="form-control" id="username" [(ngModel)]="search.username" name="username" #username="ngModel">
+                    </div>
+                    {{#each db._resources}}
+                    {{#equal name 'User'}}
+                    {{#each _entity._attrs}}
+                    {{#notEqual name 'username'}}
+                    {{#notEqual name 'password'}}
+                    {{#notEqual name 'roles'}}
+                    <div class="form-group">
+                        <label for="username">{{name}}</label>
+                        <input type="{{lowercase type}}" class="form-control" id="{{lowercase name}}" [(ngModel)]="search.{{lowercase name}}" name="{{lowercase name}}" #{{lowercase name}}="ngModel" {{#equal required true}}reqired{{/equal}}>
+                    </div>
+                    {{/notEqual}}
+                    {{/notEqual}}
+                    {{/notEqual}}
+                    {{/each}}
+                    {{/equal}}
+                    {{/each}}
+                    <div class="form-group">
+                        <label for="title">Role</label>
+                        <input type="text" class="form-control" id="role" [(ngModel)]="search.role" name="role" #role="ngModel">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- TABLE LIST -->
+<table class="table table-hover mt-40">
+    <thead>
+        <tr>
+            <th>Username</th>
+            {{#each db._resources}}
+            {{#equal name 'User'}}
+            {{#each _entity._attrs}}
+            {{#notEqual name 'username'}}
+            {{#notEqual name 'password'}}
+            {{#notEqual name 'roles'}}
+            <th>{{capitalize name}}</th>
+            {{/notEqual}}
+            {{/notEqual}}
+            {{/notEqual}}
+            {{/each}}
+            {{/equal}}
+            {{/each}}
+            <th>Roles</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users | search:{'username' : search.username, 'name' : search.name, 'surname' : search.surname, 'mail' : search.mail, 'roles' : search.role }">
+            <td><a [routerLink]="['/manage-users/', user._id]">\{{user.username}}</a></td>
+            {{#each db._resources}}
+            {{#equal name 'User'}}
+            {{#each _entity._attrs}}
+            {{#notEqual name 'username'}}
+            {{#notEqual name 'password'}}
+            {{#notEqual name 'roles'}}
+            <td>\{{user.{{lowercase name}} }}</td>
+            {{/notEqual}}
+            {{/notEqual}}
+            {{/notEqual}}
+            {{/each}}
+            {{/equal}}
+            {{/each}}
+            <td>
+                <span *ngFor="let role of user.roles" class="badge badge-pill badge-primary mr-2">\{{role}}</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- BUTTON -->
+<button class="btn btn-primary text-center pull-right mb-20" routerLink="/manage-users/new">
+    <span>
+        <i class="fa fa-plus"></i>
+    </span>
+</button>

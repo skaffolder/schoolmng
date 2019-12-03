@@ -1,0 +1,74 @@
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Student Edit</h1>
+</div>
+<div class="card mb-40">
+    <div class="card-header">
+        <i class="fa fa-edit"></i> Edit
+    </div>
+    <div class="card-body">
+        <form #editForm="ngForm" [ngClass]="{'was-validated': formValid!=null}">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="dob">Dob</label>
+                        <input type="date" class="form-control" id="dob" [(ngModel)]="item.dob" name="dob" #dob="ngModel" >
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="item.name" name="name" #name="ngModel" required>
+                        <div class="invalid-feedback">Value is required</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="surname">Surname</label>
+                        <input type="text" class="form-control" id="surname" [(ngModel)]="item.surname" name="surname" #surname="ngModel" >
+                    </div>
+                    <!-- RELATIONS -->
+                    <h2 class="mb-20">Relations</h2>
+
+                    <div class="pb-30">
+                        <div class="mb-20">
+                            <label>_attend_courses</label>
+
+                            <span class="dropdown ml-20">
+                                <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton_attend_courses" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Add
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton_attend_courses">
+                                    <button class="dropdown-item" *ngFor="let item of list_attend_courses" [class.disabled]="containCourse(item._id)" (click)="$event.preventDefault(); containCourse(item._id) || addCourse(item._id)">{{item._id}}
+                                    </button>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="mb-40">
+                            <ul class="list-group">
+                                <li class="list-group-item" *ngIf="!item._attend_courses || item._attend_courses.length == 0">No item found</li>
+                                <li class="list-group-item" *ngFor="let obj of item._attend_courses; let i = index">
+                                    {{obj}}
+
+                                    <button class="btn btn-danger pull-right" type="button" (click)="removeCourse(i)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h2 *ngIf="externalExam[0]">External Relations</h2>
+        
+                        <h3 *ngIf="externalExam[0]">Exam</h3>
+                        <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let item of externalExam">{{item._id}}</li>
+                        </ul>
+
+                    <!-- BUTTON BAR -->
+                    <div class="mt-40">
+                        <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Save</button>
+                        <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Back To List</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

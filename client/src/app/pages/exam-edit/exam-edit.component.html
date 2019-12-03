@@ -1,0 +1,52 @@
+<!-- TITLE -->
+<div class="mb-40 mt-40">
+    <h1>Exam Edit</h1>
+</div>
+<div class="card mb-40">
+    <div class="card-header">
+        <i class="fa fa-edit"></i> Edit
+    </div>
+    <div class="card-body">
+        <form #editForm="ngForm" [ngClass]="{'was-validated': formValid!=null}">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <label for="place">Place</label>
+                        <input type="text" class="form-control" id="place" [(ngModel)]="item.place" name="place" #place="ngModel" >
+                    </div>
+                    <div class="form-group">
+                        <label for="score">Score</label>
+                        <input type="number" class="form-control" id="score" [(ngModel)]="item.score" name="score" #score="ngModel" >
+                    </div>
+                    <div class="form-group ">
+                        <label for="valid">Valid</label>
+                    </div>
+                    <!-- RELATIONS -->
+                    <h2 class="mb-20">Relations</h2>
+
+                    <label for="course">Course</label>
+                    <select name="_course" id="_course" [(ngModel)]="item._course" class="form-control" #_course="ngModel"  >
+                        <option *ngFor="let item of list_course" [value]="item._id">{{item._id}}</option>
+                    </select>
+                    <label for="student">Student</label>
+                    <select name="_student" id="_student" [(ngModel)]="item._student" class="form-control" #_student="ngModel"  >
+                        <option *ngFor="let item of list_student" [value]="item._id">{{item._id}}</option>
+                    </select>
+                    <label for="teacher">Teacher</label>
+                    <select name="_teacher" id="_teacher" [(ngModel)]="item._teacher" class="form-control" #_teacher="ngModel"  >
+                        <option *ngFor="let item of list_teacher" [value]="item._id">{{item._id}}</option>
+                    </select>
+
+                    
+        
+
+                    <!-- BUTTON BAR -->
+                    <div class="mt-40">
+                        <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Save</button>
+                        <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Back To List</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

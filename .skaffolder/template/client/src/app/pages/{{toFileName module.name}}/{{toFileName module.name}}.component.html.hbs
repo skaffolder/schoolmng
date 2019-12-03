@@ -1,0 +1,24 @@
+**** PROPERTIES SKAFFOLDER ****
+{
+    "forEachObj": "module",
+    "_partials": [
+        {
+            "name": "partial Links",
+            "tagFrom": "<!-- START LINKS -->",
+            "tagTo": "<!-- END LINKS -->",
+            "template": "{{#each module._links}}\r\n    <div>\r\n        <a routerLink=\"{{url}}\" routerLinkActive=\"active\">Link to List {{capitalize name}}</a>\r\n    </div>\r\n    {{/each}}"
+        }
+    ]
+}
+**** END PROPERTIES SKAFFOLDER ****
+<!-- TITLE -->
+
+<div class="mb-40 mt-40">
+  <h1>{{capitalize module.name}}</h1>
+</div>
+
+<!-- SEARCH FORM -->
+<div>
+  <!-- START LINKS -->
+  <!-- END LINKS -->
+</div>
