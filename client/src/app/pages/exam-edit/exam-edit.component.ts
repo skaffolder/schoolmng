@@ -65,6 +65,10 @@ export class ExamEditComponent implements OnInit {
         this.item = new Exam();
     }
 
+    validate() {
+        this.examService.validate(this.item._id).subscribe(data => this.item = data);
+    }
+
     /**
      * Init
      */

@@ -19,7 +19,8 @@
                         <input type="number" class="form-control" id="score" [(ngModel)]="item.score" name="score" #score="ngModel" >
                     </div>
                     <div class="form-group ">
-                        <label for="valid">Valid</label>
+                        <label for="valid">Valid:</label>
+                        {{item.valid}}
                     </div>
                     <!-- RELATIONS -->
                     <h2 class="mb-20">Relations</h2>
@@ -44,6 +45,7 @@
                     <div class="mt-40">
                         <button class="btn btn-primary pull-right" (click)="save(editForm.valid, item)">Save</button>
                         <button class="btn btn-secondary pull-right mr-2" (click)="goBack()">Back To List</button>
+                        <button class="btn btn-info pull-right mr-2" (click)="validate()">Validate</button>
                     </div>
                 </div>
             </div>

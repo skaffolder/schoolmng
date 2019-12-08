@@ -49,6 +49,24 @@ const customControllers = {
     }
 
    */
+
+  /**
+  * examModel.validate
+  *   @description This API is used to validate the exam
+  *   @param String id id of the exam
+  *   @returns Boolean
+  *
+  */
+  validate: async (req, res) => {
+    try {
+      console.log('This is my custom function, id: ' + req.params.id);
+      let result = await ExamModel.validate(req.params.id);
+      res.json(result);
+    } catch (err) {
+      const safeErr = ErrorManager.getSafeError(err);
+      res.status(safeErr.status).json(safeErr);
+    }
+  },
    
 };
 

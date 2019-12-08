@@ -30,6 +30,18 @@ const customModel = {
 
    */
 
+
+  /**
+  * examModel.validate
+  *   @description validate
+  *
+  */
+  async validate(id) {
+    let res = await ExamModelGenerated.getModel().findOneAndUpdate({ _id: id }, {valid: true}, {'new': true});
+    return res;
+  },
+  
+
 };
 
 export default {
