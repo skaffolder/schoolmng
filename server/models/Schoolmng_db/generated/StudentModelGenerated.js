@@ -115,16 +115,6 @@ const generatedModel = {
   },
   
   /**
-  * studentModel.findBy_courses
-  *   @description CRUD ACTION findBy_courses
-  *   @param Objectid key Id della risorsa _courses da cercare
-  *
-  */
-  async findBy_courses(key) {
-    return await generatedModel.model.find({ '_courses' : key});
-  },
-  
-  /**
   * studentModel.get
   *   @description CRUD ACTION get
   *   @param ObjectId id Id resource

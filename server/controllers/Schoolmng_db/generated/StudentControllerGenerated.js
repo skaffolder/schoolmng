@@ -30,7 +30,6 @@ const generatedControllers = {
     router.post(baseUrl + "", authorize([]), StudentController.create);
     router.delete(baseUrl + "/:id", authorize([]), StudentController.delete);
     router.get(baseUrl + "/findBy_attend_courses/:key", authorize([]), StudentController.findBy_attend_courses);
-    router.get(baseUrl + "/findBy_courses/:key", authorize([]), StudentController.findBy_courses);
     router.get(baseUrl + "/:id", authorize([]), StudentController.get);
     router.get(baseUrl + "", authorize([]), StudentController.list);
     router.post(baseUrl + "/:id", authorize([]), StudentController.update);
@@ -80,22 +79,6 @@ const generatedControllers = {
   findBy_attend_courses: async (req, res) => {
     try {
       const result = await StudentModel.findBy_attend_courses(req.params.key);
-      res.json(result);
-    } catch (err) {
-      const safeErr = ErrorManager.getSafeError(err);
-      res.status(safeErr.status).json(safeErr);
-    }
-  },
-  
-  /**
-  * studentModel.findBy_courses
-  *   @description CRUD ACTION findBy_courses
-  *   @param Objectid key Id della risorsa _courses da cercare
-  *
-  */
-  findBy_courses: async (req, res) => {
-    try {
-      const result = await StudentModel.findBy_courses(req.params.key);
       res.json(result);
     } catch (err) {
       const safeErr = ErrorManager.getSafeError(err);

@@ -106,20 +106,6 @@ export class StudentBaseService {
     }
 
     /**
-    * studentService.findBy_courses
-    *   @description CRUD ACTION findBy_courses
-    *   @param Objectid key Id della risorsa _courses da cercare
-    *
-    */
-    findBy_courses(id: string): Observable<Student[]> {
-        return this.http
-            .get<Student[]>(this.contextUrl + '/findBy_courses/' + id)
-            .pipe(
-                map(response => response)
-            );
-    }
-
-    /**
     * studentService.get
     *   @description CRUD ACTION get
     *   @param ObjectId id Id resource

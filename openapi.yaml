@@ -476,7 +476,7 @@ paths:
     
   /exam/{id}:
     delete:
-      x-skaffolder-id: 5de69a8119b9e3132aba8a54
+      x-skaffolder-id: 5dec346fa4f4b55911b3d98f
       x-skaffolder-name: delete
       x-skaffolder-id-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-resource: exam
@@ -502,7 +502,7 @@ paths:
         "200":
           description: OK
     get:
-      x-skaffolder-id: 5de69a8119b9e3132aba8a4e
+      x-skaffolder-id: 5dec346fa4f4b55911b3d98c
       x-skaffolder-name: get
       x-skaffolder-id-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-resource: exam
@@ -570,7 +570,7 @@ paths:
     
   /exam/findBy_course/{key}:
     get:
-      x-skaffolder-id: 5de69a7c19b9e3132aba8a44
+      x-skaffolder-id: 5dec346ca4f4b55911b3d984
       x-skaffolder-name: findBy_course
       x-skaffolder-id-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-resource: exam
@@ -604,7 +604,7 @@ paths:
     
   /exam/findBy_student/{key}:
     get:
-      x-skaffolder-id: 5de69a7019b9e3132aba8a2b
+      x-skaffolder-id: 5dec3465a4f4b55911b3d97b
       x-skaffolder-name: findBy_student
       x-skaffolder-id-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-resource: exam
@@ -638,7 +638,7 @@ paths:
     
   /exam/findBy_teacher/{key}:
     get:
-      x-skaffolder-id: 5de69a7619b9e3132aba8a38
+      x-skaffolder-id: 5dec3469a4f4b55911b3d980
       x-skaffolder-name: findBy_teacher
       x-skaffolder-id-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-resource: exam
@@ -701,7 +701,7 @@ paths:
   #-----  student  -----
   /student/:
     post:
-      x-skaffolder-id: 5de69a7019b9e3132aba8a26
+      x-skaffolder-id: 5dec3465a4f4b55911b3d97a
       x-skaffolder-name: create
       x-skaffolder-id-resource: 5de699bf19b9e3132aba8a0d
       x-skaffolder-resource: student
@@ -856,7 +856,7 @@ paths:
     
   /student/findBy_attend_courses/{key}:
     get:
-      x-skaffolder-id: 5de69ed119b9e3132aba8ad7
+      x-skaffolder-id: 5dec346ca4f4b55911b3d988
       x-skaffolder-name: findBy_attend_courses
       x-skaffolder-id-resource: 5de699bf19b9e3132aba8a0d
       x-skaffolder-resource: student
@@ -875,40 +875,6 @@ paths:
           x-skaffolder-type: Objectid
           in: path
           description: Id della risorsa _attend_courses da cercare
-          required: true
-          schema:
-            type: Objectid
-      responses:
-        "200":
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/student"
-    
-  /student/findBy_courses/{key}:
-    get:
-      x-skaffolder-id: 5de69a7c19b9e3132aba8a48
-      x-skaffolder-name: findBy_courses
-      x-skaffolder-id-resource: 5de699bf19b9e3132aba8a0d
-      x-skaffolder-resource: student
-      x-skaffolder-crudAction: findBy_courses
-      x-skaffolder-crudType: 
-      x-skaffolder-description: CRUD ACTION findBy_courses
-      x-skaffolder-returnDesc: 
-      x-skaffolder-returnType: 
-      x-skaffolder-url: /findBy_courses/{key}
-      x-skaffolder-roles: []
-      summary: CRUD ACTION findBy_courses
-      tags:
-        - student
-      parameters:
-        - name: key
-          x-skaffolder-type: Objectid
-          in: path
-          description: Id della risorsa _courses da cercare
           required: true
           schema:
             type: Objectid
@@ -1078,7 +1044,7 @@ paths:
     
   /teacher/findBy_courses/{key}:
     get:
-      x-skaffolder-id: 5de69a7c19b9e3132aba8a46
+      x-skaffolder-id: 5dec346ca4f4b55911b3d986
       x-skaffolder-name: findBy_courses
       x-skaffolder-id-resource: 5de699cf19b9e3132aba8a13
       x-skaffolder-resource: teacher
@@ -1296,7 +1262,7 @@ components:
 
   # Pages
   x-skaffolder-page:
-    - x-skaffolder-id: 5de6992e19b9e3132aba8989
+    - x-skaffolder-id: 5dec3465a4f4b55911b3d97e
       x-skaffolder-name: Home
       x-skaffolder-url: /home
       x-skaffolder-template: 
@@ -1304,27 +1270,27 @@ components:
       x-skaffolder-services: 
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
-        - 5de69a7019b9e3132aba8a2e
-        - 5de69a7619b9e3132aba8a3a
-        - 5de69a7c19b9e3132aba8a4a
-        - 5de69a8119b9e3132aba8a53
+        - 5dec3465a4f4b55911b3d97d
+        - 5dec3469a4f4b55911b3d982
+        - 5dec346ca4f4b55911b3d98a
+        - 5dec346fa4f4b55911b3d98e
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a7b19b9e3132aba8a3e
+    - x-skaffolder-id: 5dec346ca4f4b55911b3d983
       x-skaffolder-name: courseEdit
       x-skaffolder-url: /courses/{id}
       x-skaffolder-template: Edit_Crud
       x-skaffolder-resource: 5de699db19b9e3132aba8a18
       x-skaffolder-services: 
         - 5de69a7b19b9e3132aba8a41
-        - 5de69ed119b9e3132aba8ad7
-        - 5de69a7c19b9e3132aba8a44
-        - 5de69a7c19b9e3132aba8a46
+        - 5dec346ca4f4b55911b3d988
+        - 5dec346ca4f4b55911b3d984
+        - 5dec346ca4f4b55911b3d986
         - 5de69a7b19b9e3132aba8a42
         - 5de69a7b19b9e3132aba8a3f
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a7c19b9e3132aba8a4a
+    - x-skaffolder-id: 5dec346ca4f4b55911b3d98a
       x-skaffolder-name: courseList
       x-skaffolder-url: /courses
       x-skaffolder-template: List_Crud
@@ -1334,16 +1300,16 @@ components:
         - 5de69a7019b9e3132aba8a2d
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
-        - 5de69a7b19b9e3132aba8a3e
+        - 5dec346ca4f4b55911b3d983
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a8119b9e3132aba8a4d
+    - x-skaffolder-id: 5dec346fa4f4b55911b3d98b
       x-skaffolder-name: examEdit
       x-skaffolder-url: /exams/{id}
       x-skaffolder-template: Edit_Crud
       x-skaffolder-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-services: 
         - 5de69a8119b9e3132aba8a51
-        - 5de69a8119b9e3132aba8a4e
+        - 5dec346fa4f4b55911b3d98c
         - 5de69a7019b9e3132aba8a30
         - 5de69a7619b9e3132aba8a3c
         - 5de69a7019b9e3132aba8a2d
@@ -1351,33 +1317,33 @@ components:
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a8119b9e3132aba8a53
+    - x-skaffolder-id: 5dec346fa4f4b55911b3d98e
       x-skaffolder-name: examList
       x-skaffolder-url: /exams
       x-skaffolder-template: List_Crud
       x-skaffolder-resource: 5de699ec19b9e3132aba8a1e
       x-skaffolder-services: 
-        - 5de69a8119b9e3132aba8a54
+        - 5dec346fa4f4b55911b3d98f
         - 5de69a8119b9e3132aba8a55
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
-        - 5de69a8119b9e3132aba8a4d
+        - 5dec346fa4f4b55911b3d98b
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a7019b9e3132aba8a25
+    - x-skaffolder-id: 5dec3464a4f4b55911b3d979
       x-skaffolder-name: studentEdit
       x-skaffolder-url: /students/{id}
       x-skaffolder-template: Edit_Crud
       x-skaffolder-resource: 5de699bf19b9e3132aba8a0d
       x-skaffolder-services: 
-        - 5de69a7019b9e3132aba8a26
-        - 5de69a7019b9e3132aba8a2b
+        - 5dec3465a4f4b55911b3d97a
+        - 5dec3465a4f4b55911b3d97b
         - 5de69a7019b9e3132aba8a28
         - 5de69a7019b9e3132aba8a2d
         - 5de69a7019b9e3132aba8a27
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a7019b9e3132aba8a2e
+    - x-skaffolder-id: 5dec3465a4f4b55911b3d97d
       x-skaffolder-name: studentList
       x-skaffolder-url: /students
       x-skaffolder-template: List_Crud
@@ -1387,23 +1353,23 @@ components:
         - 5de69a7019b9e3132aba8a30
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
-        - 5de69a7019b9e3132aba8a25
+        - 5dec3464a4f4b55911b3d979
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a7619b9e3132aba8a32
+    - x-skaffolder-id: 5dec3469a4f4b55911b3d97f
       x-skaffolder-name: teacherEdit
       x-skaffolder-url: /teachers/{id}
       x-skaffolder-template: Edit_Crud
       x-skaffolder-resource: 5de699cf19b9e3132aba8a13
       x-skaffolder-services: 
         - 5de69a7619b9e3132aba8a33
-        - 5de69a7619b9e3132aba8a38
+        - 5dec3469a4f4b55911b3d980
         - 5de69a7619b9e3132aba8a35
         - 5de69a7019b9e3132aba8a2d
         - 5de69a7619b9e3132aba8a34
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
       x-skaffolder-roles: []
-    - x-skaffolder-id: 5de69a7619b9e3132aba8a3a
+    - x-skaffolder-id: 5dec3469a4f4b55911b3d982
       x-skaffolder-name: teacherList
       x-skaffolder-url: /teachers
       x-skaffolder-template: List_Crud
@@ -1413,5 +1379,5 @@ components:
         - 5de69a7619b9e3132aba8a3c
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
-        - 5de69a7619b9e3132aba8a32
+        - 5dec3469a4f4b55911b3d97f
       x-skaffolder-roles: []
